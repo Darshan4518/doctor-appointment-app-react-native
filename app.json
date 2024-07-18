@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "doctor-appointment-application",
+    "slug": "doctor-appointment-application",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.darshan45.doctorappointmentapplication"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.darshan45.doctorappointmentapplication"
+    },
+    "scheme": "doctorappointmentapp",
+    "extra": {
+      "eas": {
+        "projectId": "a66027f2-f52f-49d6-b962-d692cb971079"
+      }
+    }
+  }
+}
