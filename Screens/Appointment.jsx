@@ -17,8 +17,7 @@ const Appointment = () => {
 
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [deletingId, setDeletingId] = useState(null); // State to track which appointment is being deleted
-
+  const [deletingId, setDeletingId] = useState(null);
   const getAppointmentData = () => {
     axios
       .get(
@@ -26,11 +25,11 @@ const Appointment = () => {
       )
       .then((res) => {
         setAppointments(res.data);
-        setLoading(false); // Set loading to false when data is fetched
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching appointments:", error);
-        setLoading(false); // Always set loading to false in case of error
+        setLoading(false);
       });
   };
 
@@ -39,20 +38,19 @@ const Appointment = () => {
   }, [show]);
 
   const deleteAppointment = async (id) => {
-    setDeletingId(id); // Set the appointment id that is being deleted
+    setDeletingId(id);
     try {
       await axios.delete(
         `https://doctor-appointment-webapp-bakend.onrender.com/api/appointments/${id}`
       );
-      getAppointmentData(); // Refresh the appointments after deletion
+      getAppointmentData();
     } catch (error) {
       console.error("Error deleting appointment:", error);
     } finally {
-      setDeletingId(null); // Reset deletingId after deletion attempt
+      setDeletingId(null);
     }
   };
 
-  // Skeleton loading component
   const SkeletonAppointmentItem = () => (
     <View className="my-2 p-2 rounded-xl bg-gray-200 animate-pulse">
       <View className="h-28 w-full bg-gray-300 rounded-xl mb-2" />
@@ -74,7 +72,6 @@ const Appointment = () => {
           <SkeletonAppointmentItem />
         </>
       ) : appointments.length > 0 ? (
-        // Render appointments if data is available
         appointments.map((appointment, ind) => (
           <View
             key={ind}

@@ -7,7 +7,7 @@ import axios from "axios";
 const DoctorSpecialityList = () => {
   const navigate = useNavigation();
   const [category, setCategory] = useState([]);
-  const [loading, setLoading] = useState(true); // State to manage loading
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -16,11 +16,11 @@ const DoctorSpecialityList = () => {
       )
       .then((res) => {
         setCategory(res.data);
-        setLoading(false); // Set loading to false after data is fetched
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
-        setLoading(false); // Set loading to false in case of an error
+        setLoading(false);
       });
   }, []);
 
